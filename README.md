@@ -34,14 +34,14 @@ It is clear that many statistics have moderate to strong correlation with one an
 ### Linear Model Evaluation
 The following 4 linear models were created to get an estimate of baseline performance: Linear Regression, Lasso Regression, Ridge Regression and Elastic-net.
 
-The models were evaluated using all available predictor variables.  For the ridge and lasso models cross validation was utilized to select the regularization parameters.  The scikit-learn library was utilized for each model.  For simplicity and consistency all models were compared using the R^2 value.
+The models were evaluated using all available predictor variables.  For the ridge and lasso models, cross validation was utilized to select the regularization parameters.  The scikit-learn library was utilized for each model.  For simplicity and consistency all models were compared using the R^2 value.
 
 ![Initial Model Comparison](figures/initial_model_comparison.png)
 
 It was noted that the ridge, elastic-net and lasso models outperformed the traditional ordinary least squares (OLS) model.  This is likely due to the extreme multicollinearity that was observed in the feature space.
 
 ### Multicollinearity
-There are many approaches to dealing with the multicollinearity issues present in our data set.  Ideally, going through a process of feature selection where we systematically eliminate features that have collinear relationships until we are left with a smaller more diverse data set would be the preferred approach.  While this may still be an option in our case, our data points are so highly correlated that such an exercise may prove tedious and remove too much relevant information from our model.
+There are many approaches to dealing with the multicollinearity issues present in our data set.  Ideally, going through a process of feature selection where we systematically eliminate features that have collinear relationships until we are left with a smaller, more diverse data set would be the preferred approach.  While this may still be an option in our case, our data points are so highly correlated that such an exercise may prove tedious and remove too much relevant information from our model.
 
 Ridge, lasso, and elastic-net tend to limit the deleterious effects of multicollinearity by imposing regularization on the model.  Lasso implements L1 regularization which tends to impose sparsity among the model coefficients, while ridge implements L2 regularization which limits the overall size of the coefficient vector.  regularization in the elastic-net model is a mix of L1 and L2.
 
@@ -101,7 +101,7 @@ Below are items we would have explored if we had more time:
 
 1. As noted earlier, many of our features were highly correlated with each other.  Some brief explorations were made with feature selection but ultimately abandoned due to lack of model improvement.
 
-2. Variance inflation factor (VIF) was also breifly explored for evaluation of multicollinearity.  However, VIF values were quite large for virtually all features making evaluation difficult.
+2. Variance inflation factor (VIF) was also briefly explored for evaluation of multicollinearity.  However, VIF values were quite large for virtually all features making evaluation difficult.
 
 3. Explore and correct skewed features.  Linear regression assumes normally distributed features.  Exploration and correction may improve model results.
 
