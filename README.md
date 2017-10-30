@@ -84,25 +84,23 @@ It appears that the new features had a slight positive improvement on the R^2 va
 ### Final Model
 Based on the results above the Ridge model was selected for further testing.  The model was trained using cross validation to determine the regularization parameter.  The model produced approximate R^2 and MSE values of 0.177 and 148.5, respectively.  The regularization parameter selected during cross validation was 1,842.  This is an extremely high value which severely restricts the individual coefficient weights.
 
-We next examined the coefficient weights to examine which features have the highest impact on the model.
+We next examined the coefficient weights for the model.
 
 ![Coefficients](figures/model_coefficients.png)
 
-As noted above, the coefficient weights have been suppressed by the model regularization process.  It is noted that 2 of our engineered features are ranked in the top 8 most influential coefficients, with away team days rest having the greatest influence.
+As noted above, the coefficient weights have been suppressed by the model regularization process.  It is interesting to note that 2 of our engineered features are shown to have some of the largest weights.  Due to the extreme co-linearity that we noted earlier, we should hold-off in assuming the large coefficients correspond to feature importance at this time.
 
 A residuals plot is included below.
 
 ![Residuals Plot](figures/residuals.png)
 
-The plot is observed to be evenly distributed in both dimensions with a cluster around the center indicating a well fit model.  The clear space that cuts diagonally through the origin is created because no NBA games end in a tie, making a score margin of 0 impossible.
+The plot is observed to be evenly distributed in both dimensions with a cluster around the center.  The clear space that cuts diagonally through the origin is created because no NBA games end in a tie, making a score margin of 0 impossible.
 
 ### Further Analysis
 Below are items we would have explored if we had more time:
 
-1. As noted earlier, many of our features were highly correlated with each other.  Some brief explorations were made with feature selection but ultimately abandoned due to lack of model improvement.
+1. As noted several times, many of our features were highly correlated with each other.  Some brief explorations were made with feature selection but ultimately abandoned due to lack of model improvement.  There are more time-intensive options for feature selection available that would probably provide a net benefit to our model.
 
-2. Variance inflation factor (VIF) was also briefly explored for evaluation of multicollinearity.  However, VIF values were quite large for virtually all features making evaluation difficult.
+2. Explore and correct skewed features.  Linear regression assumes normally distributed features.  Exploration and correction may improve model results.
 
-3. Explore and correct skewed features.  Linear regression assumes normally distributed features.  Exploration and correction may improve model results.
-
-4. Engineer additional features.  We saw positive results from this exercise and there are countless additional approaches that could be made.
+3. Engineer additional features.  We saw positive results from this exercise and there are countless additional approaches that could be made.
