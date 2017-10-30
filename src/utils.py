@@ -43,11 +43,18 @@ def expanding_means(df, groups, unwanted_cols):
     return df
 
 def rolling_window_mean(df, column_list, width):
+    """
+    Function to create features to account for performance over previous n
+    games
+    """
     for column in column_list:
         df[column+'_last5']=df.groupby(['season', 'team'])[column].transform(lambda x: x.rolling(window=width).mean().shift(1))
     return df
 
 def calc_distance(df):
+    """
+    Function to create feature showing distance traveled by away team (miles)
+    """
     return vincenty(df['home_lat_long'], df['away_lat_long']).miles
 
 def create_schedule(df):
