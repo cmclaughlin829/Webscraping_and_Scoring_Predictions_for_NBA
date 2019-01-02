@@ -1,4 +1,4 @@
-# A Supervised Learning Approach to NBA Scoring Predictions
+# Webscraping and Scoring Predictions for NBA Regular Season Games
 
 ### Introduction
 This is an open-ended regression project for the Data Science program at [K2 Data Science](http://k2datascience.com).
